@@ -84,7 +84,7 @@ namespace ClubeLeitura.ConsoleApp
             notificador.ApresentarMensagem("Caixa editada com sucesso", "Sucesso");
         }
 
-        private static void MostrarTitulo(string titulo)
+        public void MostrarTitulo(string titulo)
         {
             Console.Clear();
 
