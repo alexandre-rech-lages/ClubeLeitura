@@ -107,6 +107,9 @@ namespace ClubeLeitura.ConsoleApp.ModuloCaixa
 
             Caixa[] caixas = repositorioCaixa.SelecionarTodos();
 
+            if (caixas.Length == 0)
+                return false;
+
             for (int i = 0; i < caixas.Length; i++)
             {              
                 Caixa c = caixas[i];
