@@ -8,6 +8,8 @@
  *  
  *  -Para sair, usuário deve digitar "s"
  */
+using ClubeLeitura.ConsoleApp.Compartilhado;
+using ClubeLeitura.ConsoleApp.ModuloCaixa;
 using System;
 
 namespace ClubeLeitura.ConsoleApp
@@ -18,8 +20,15 @@ namespace ClubeLeitura.ConsoleApp
         {
             TelaMenuPrincipal menuPrincipal = new TelaMenuPrincipal();
             TelaCadastroCaixa telaCadastroCaixa = new TelaCadastroCaixa();
-            telaCadastroCaixa.caixas = new Caixa[10];
-            telaCadastroCaixa.notificador = new Notificador();
+
+            RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
+            repositorioCaixa.caixas = new Caixa[10];
+
+            telaCadastroCaixa.repositorioCaixa = repositorioCaixa; 
+
+            Notificador notificador = new Notificador();
+            telaCadastroCaixa.notificador = notificador;
+
 
             while (true)
             {                
@@ -43,7 +52,11 @@ namespace ClubeLeitura.ConsoleApp
                     }
                     else if (opcao == "4")
                     {
-                        telaCadastroCaixa.VisualizarCaixas("Tela");
+                        bool temCaixaCadastrada = telaCadastroCaixa.VisualizarCaixas("Tela");
+                        if (temCaixaCadastrada == false)
+                        {
+                            notificador.ApresentarMensagem("Nenhuma caixa cadastrada", "Atencao");
+                        }
                         Console.ReadLine(); 
                     }
                 }

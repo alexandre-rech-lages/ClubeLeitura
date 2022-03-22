@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeLeitura.ConsoleApp
+namespace ClubeLeitura.ConsoleApp.ModuloRevista
 {
     public class TelaCadastroRevista
     {
